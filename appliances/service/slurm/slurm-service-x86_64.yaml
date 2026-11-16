@@ -87,6 +87,8 @@ opennebula_template:
       ONEAPP_SLURM_INFINIBAND_ENABLE = "$ONEAPP_SLURM_INFINIBAND_ENABLE"
       ONEAPP_SLURM_NFS_HOME = "$ONEAPP_SLURM_NFS_HOME"
       ONEAPP_SLURM_NFS_SCRATCH = "$ONEAPP_SLURM_NFS_SCRATCH"
+      ONEAPP_SLURM_CVMFS_HTTP_PROXY = "$ONEAPP_SLURM_CVMFS_HTTP_PROXY"
+      ONEAPP_SLURM_CVMFS_QUOTA_LIMIT = "$ONEAPP_SLURM_CVMFS_QUOTA_LIMIT"
     elasticity_policies: []
     scheduled_policies: []
   - name: worker
@@ -112,11 +114,15 @@ opennebula_template:
       ONEAPP_SLURM_IPOIB_SUBNET = "$ONEAPP_SLURM_IPOIB_SUBNET"
       ONEAPP_SLURM_NFS_HOME = "$ONEAPP_SLURM_NFS_HOME"
       ONEAPP_SLURM_NFS_SCRATCH = "$ONEAPP_SLURM_NFS_SCRATCH"
+      ONEAPP_SLURM_CVMFS_HTTP_PROXY = "$ONEAPP_SLURM_CVMFS_HTTP_PROXY"
+      ONEAPP_SLURM_CVMFS_QUOTA_LIMIT = "$ONEAPP_SLURM_CVMFS_QUOTA_LIMIT"
     elasticity_policies: []
     scheduled_policies: []
   networks:
     Service: "M|network|Service||id:"
   user_inputs:
+    ONEAPP_SLURM_CVMFS_HTTP_PROXY: "O|text|CernVM-FS HTTP proxy (empty uses client default)||"
+    ONEAPP_SLURM_CVMFS_QUOTA_LIMIT: "O|text|CernVM-FS local cache quota in MB||2000"
     ONEAPP_LDAP_ENABLE: "O|boolean|Enable Accounting local LDAP server||NO"
     ONEAPP_LDAP_DOMAIN: "O|text|LDAP domain (base DN derived from it)||slurm.local"
     ONEAPP_LDAP_ADMIN_USER: "O|text|LDAP admin user||"

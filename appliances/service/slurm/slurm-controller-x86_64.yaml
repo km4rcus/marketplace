@@ -26,6 +26,8 @@ hypervisor: ALL
 opennebula_version: '6.4, 6.6, 6.8, 6.10, 7.0, 7.2, 7.4'
 opennebula_template:
   context:
+    oneapp_slurm_cvmfs_http_proxy: "$ONEAPP_SLURM_CVMFS_HTTP_PROXY"
+    oneapp_slurm_cvmfs_quota_limit: "$ONEAPP_SLURM_CVMFS_QUOTA_LIMIT"
     oneapp_slurm_infiniband_enable: "$ONEAPP_SLURM_INFINIBAND_ENABLE"
     oneapp_slurm_nfs_home: "$ONEAPP_SLURM_NFS_HOME"
     oneapp_slurm_nfs_scratch: "$ONEAPP_SLURM_NFS_SCRATCH"
@@ -43,6 +45,8 @@ opennebula_template:
     arch: x86_64
   inputs_order: ""
   user_inputs:
+    ONEAPP_SLURM_CVMFS_HTTP_PROXY: "O|text|CernVM-FS HTTP proxy (empty uses client default)||"
+    ONEAPP_SLURM_CVMFS_QUOTA_LIMIT: "O|text|CernVM-FS local cache quota in MB||2000"
     ONEAPP_SLURM_INFINIBAND_ENABLE: "O|boolean|Enable InfiniBand Slurm/MPI defaults||NO"
     ONEAPP_SLURM_NFS_HOME: "O|text|NFS export for /home (host:/export)||"
     ONEAPP_SLURM_NFS_SCRATCH: "O|text|NFS export for /scratch (host:/export)||"
